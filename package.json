@@ -19,5 +19,8 @@
   "homepage": "https://github.com/daankh/cypressLearning#readme",
   "dependencies": {
     "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "cypress": "^4.2.0"
   }
 }
