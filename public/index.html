@@ -11,5 +11,28 @@
       crossorigin="anonymous"
     />
   </head>
-  <body></body>
+  <body>
+    <div class="mt-5">
+      <form action="/login" method="POST" class="text-center w-25 m-auto">
+        <h1 class="mb-3 ">Login</h1>
+        <input
+          type="email"
+          id="inputEmail"
+          class="form-control mb-4"
+          placeholder="Email"
+          required
+        />
+        <input
+          type="password"
+          id="input-password"
+          class="form-control mb-4"
+          placeholder="password"
+          required
+        />
+        <button class="btn btn-lg btn-primary btn-block" type="submit">
+          Log in
+        </button>
+      </form>
+    </div>
+  </body>
 </html>
