@@ -1,0 +1,8 @@
+{
+  "compilerOptions": {
+    "allowJS": true,
+    "baseURL": "../node_modules",
+    "types": ["cypress"]
+  },
+  "include": ["**/*.*"]
+}
