@@ -51,6 +51,18 @@ describe("UI TESTS", () => {
     cy.get("[data-cy=password-input]").should("have.value", "123456");
     cy.get("[data-cy=password-input]").should("not.have.value", "1234");
   });
-});
 
-//Welcome, you are now logged in
+  it("should logout successfully", () => {
+    cy.visit("http://localhost:3000");
+    cy.get("[data-cy=email-input]").type("jarosz.dan@gmail.com");
+    cy.get("[data-cy=password-input]").type("1234");
+    cy.get("[data-cy=login-button]").click();
+    cy.get("[data-cy=logout-button]").should("have.length", 1);
+    cy.get("[data-cy=logout-button]").click();
+    //should be on the logout page
+    cy.get("[data-cy=logout-text]").should("have.length", 1);
+    cy.get("[data-cy=logout-text]").should("contain", "You are now logged out");
+    cy.get("[data-cy=logout-text]").should("not.contain", "blah blah");
+    cy.url().should("have.include", "/logout");
+  });
+});
