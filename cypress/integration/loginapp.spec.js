@@ -1,12 +1,14 @@
 describe("UI TESTS", () => {
-  it("should load the login page correctly", () => {
+  beforeEach(() => {
     cy.visit("http://localhost:3000");
+  });
+
+  it("should load the login page correctly", () => {
     cy.get("[data-cy=login-text]").should("have.length", 1);
     cy.get("[data-cy=login-text]").should("be.visible");
   });
 
   it("should not allow login when username is not provided", () => {
-    cy.visit("http://localhost:3000");
     cy.get("[data-cy=email-input]").should("have.length", 1);
     cy.get("[data-cy=password-input]").type("1234");
     cy.get("[data-cy=login-button]").click();
@@ -16,7 +18,6 @@ describe("UI TESTS", () => {
   });
 
   it("should not allow login when password is not provided", () => {
-    cy.visit("http://localhost:3000");
     cy.get("[data-cy=password-input]").should("have.length", 1);
     cy.get("[data-cy=email-input]").type("jarosz.dan@gmail.com");
     cy.get("[data-cy=login-button]").click();
@@ -26,7 +27,6 @@ describe("UI TESTS", () => {
   });
 
   it("should login to the homepage with valid creds", () => {
-    cy.visit("http://localhost:3000");
     cy.get("[data-cy=email-input]").type("jarosz.dan@gmail.com");
     cy.get("[data-cy=password-input]").type("1234");
     cy.get("[data-cy=login-button]").click();
@@ -40,7 +40,6 @@ describe("UI TESTS", () => {
   });
 
   it("should contain correct input field values", () => {
-    cy.visit("http://localhost:3000");
     cy.get("[data-cy=email-input]").type("jarosz.dan@gmail.com");
     cy.get("[data-cy=email-input]").should(
       "have.value",
@@ -53,7 +52,6 @@ describe("UI TESTS", () => {
   });
 
   it("should logout successfully", () => {
-    cy.visit("http://localhost:3000");
     cy.get("[data-cy=email-input]").type("jarosz.dan@gmail.com");
     cy.get("[data-cy=password-input]").type("1234");
     cy.get("[data-cy=login-button]").click();
@@ -67,7 +65,6 @@ describe("UI TESTS", () => {
   });
 
   it("should have existing elements", () => {
-    cy.visit("http://localhost:3000");
     cy.get("[data-cy=login-text]").should("exist");
     cy.get("[data-cy=logout-text]").should("not.exist");
   });
