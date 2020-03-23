@@ -31,8 +31,12 @@ describe("UI TESTS", () => {
     cy.get("[data-cy=password-input]").type("1234");
     cy.get("[data-cy=login-button]").click();
     //check that we are on the homepage
+    cy.url().should("have.include", "/login");
     cy.get("[data-cy=login-text]").should("have.length", 0);
     cy.get("[data-cy=homepage]").should("have.length", 1);
+    cy.get("[data-cy=logout-button]").should("be.visible");
+    cy.get("[data-cy=logout-button]").should("have.class", "btn-sm");
+    cy.get("[data-cy=logout-button]").should("not.have.class", "btn-bg");
   });
 });
 
