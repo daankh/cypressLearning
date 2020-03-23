@@ -65,4 +65,10 @@ describe("UI TESTS", () => {
     cy.get("[data-cy=logout-text]").should("not.contain", "blah blah");
     cy.url().should("have.include", "/logout");
   });
+
+  it("should have existing elements", () => {
+    cy.visit("http://localhost:3000");
+    cy.get("[data-cy=login-text]").should("exist");
+    cy.get("[data-cy=logout-text]").should("not.exist");
+  });
 });
